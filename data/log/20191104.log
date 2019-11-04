@@ -1,0 +1,109 @@
+Opened log file at Mon Nov 04 16:53:34 MST 2019
+
+
+###
+Mon Nov 04 16:53:34 MST 2019
+CONFIG	thread=1	java.vendor = AdoptOpenJDK
+CONFIG	thread=1	java.version = 11.0.3
+CONFIG	thread=1	java.home = /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+CONFIG	thread=1	os.arch = x86_64
+CONFIG	thread=1	os.name = Mac OS X
+CONFIG	thread=1	os.version = 10.13.6
+CONFIG	thread=1	user.dir = /Users/cbass/Projects/pdl-demo
+CONFIG	thread=1	user.name = cbass
+FINE	thread=1	Command line arguments: --configFile=config.ini --receive
+CONFIG	thread=1	Loading main class gov.usgs.earthquake.distribution.ProductClient
+CONFIG	thread=1	Loading listener 'indexer'
+CONFIG	thread=1	[null] includeTypes = origin, associate, disassociate, trump, trump-origin
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] timeout = 0ms
+CONFIG	thread=1	[null] retry delay = 300000ms
+CONFIG	thread=1	[null] using notification index 'data/indexer_listener_index.db'
+CONFIG	thread=1	[null] process duplicates = false
+CONFIG	thread=1	[null] include paths = []
+CONFIG	thread=1	[null] exclude paths = []
+CONFIG	thread=1	[null] using storage directory 'data/indexer_storage'
+CONFIG	thread=1	[null] loading ProductIndex 'indexer_index'
+CONFIG	thread=1	[null] loading ArchivePolicy 'archive_oldEvents'
+CONFIG	thread=1	[null] loading ArchivePolicy 'archive_unassociatedProducts'
+CONFIG	thread=1	[null] archive interval is '3600000'
+CONFIG	thread=1	[null] no indexer modules configured.
+CONFIG	thread=1	[null] loading indexer listener 'indexer_listener'
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] timeout = 0ms
+CONFIG	thread=1	[null] retry delay = 300000ms
+CONFIG	thread=1	[null] process duplicates = false
+CONFIG	thread=1	[null] include paths = []
+CONFIG	thread=1	[null] exclude paths = []
+SEVERE	thread=1	Exception loading configuration 
+gov.usgs.earthquake.distribution.ConfigurationException: [null] 'index' is a required configuration property
+	at gov.usgs.earthquake.distribution.DefaultNotificationSender.configure(DefaultNotificationSender.java:54)
+	at gov.usgs.earthquake.nats.NATSStreamingNotificationSender.configure(NATSStreamingNotificationSender.java:23)
+	at gov.usgs.util.Config.getObject(Config.java:116)
+	at gov.usgs.util.Config.getObject(Config.java:144)
+	at gov.usgs.earthquake.indexer.Indexer.configure(Indexer.java:1653)
+	at gov.usgs.util.Config.getObject(Config.java:116)
+	at gov.usgs.util.Config.getObject(Config.java:144)
+	at gov.usgs.earthquake.distribution.ProductClient.loadListeners(ProductClient.java:191)
+	at gov.usgs.earthquake.distribution.ProductClient.configure(ProductClient.java:157)
+	at gov.usgs.earthquake.distribution.Bootstrap.main(Bootstrap.java:306)
+
+Closing log file at Mon Nov 04 16:53:34 MST 2019
+
+Opened log file at Mon Nov 04 16:53:52 MST 2019
+
+
+###
+Mon Nov 04 16:53:52 MST 2019
+CONFIG	thread=1	java.vendor = AdoptOpenJDK
+CONFIG	thread=1	java.version = 11.0.3
+CONFIG	thread=1	java.home = /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+CONFIG	thread=1	os.arch = x86_64
+CONFIG	thread=1	os.name = Mac OS X
+CONFIG	thread=1	os.version = 10.13.6
+CONFIG	thread=1	user.dir = /Users/cbass/Projects/pdl-demo
+CONFIG	thread=1	user.name = cbass
+FINE	thread=1	Command line arguments: --configFile=config.ini --receive
+CONFIG	thread=1	Loading main class gov.usgs.earthquake.distribution.ProductClient
+CONFIG	thread=1	Loading listener 'indexer'
+Mon Nov 04 16:53:53 MST 2019
+CONFIG	thread=1	[null] includeTypes = origin, associate, disassociate, trump, trump-origin
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] timeout = 0ms
+CONFIG	thread=1	[null] retry delay = 300000ms
+CONFIG	thread=1	[null] using notification index 'data/indexer_listener_index.db'
+CONFIG	thread=1	[null] process duplicates = false
+CONFIG	thread=1	[null] include paths = []
+CONFIG	thread=1	[null] exclude paths = []
+CONFIG	thread=1	[null] using storage directory 'data/indexer_storage'
+CONFIG	thread=1	[null] loading ProductIndex 'indexer_index'
+CONFIG	thread=1	[null] loading ArchivePolicy 'archive_oldEvents'
+CONFIG	thread=1	[null] loading ArchivePolicy 'archive_unassociatedProducts'
+CONFIG	thread=1	[null] archive interval is '3600000'
+CONFIG	thread=1	[null] no indexer modules configured.
+CONFIG	thread=1	[null] loading indexer listener 'indexer_listener'
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] maxTries = 1
+CONFIG	thread=1	[null] timeout = 0ms
+CONFIG	thread=1	[null] retry delay = 300000ms
+CONFIG	thread=1	[null] process duplicates = false
+CONFIG	thread=1	[null] include paths = []
+CONFIG	thread=1	[null] exclude paths = []
+SEVERE	thread=1	Exception loading configuration 
+gov.usgs.earthquake.distribution.ConfigurationException: [null] 'index' is a required configuration property
+	at gov.usgs.earthquake.distribution.DefaultNotificationSender.configure(DefaultNotificationSender.java:54)
+	at gov.usgs.earthquake.nats.NATSStreamingNotificationSender.configure(NATSStreamingNotificationSender.java:23)
+	at gov.usgs.util.Config.getObject(Config.java:116)
+	at gov.usgs.util.Config.getObject(Config.java:144)
+	at gov.usgs.earthquake.indexer.Indexer.configure(Indexer.java:1653)
+	at gov.usgs.util.Config.getObject(Config.java:116)
+	at gov.usgs.util.Config.getObject(Config.java:144)
+	at gov.usgs.earthquake.distribution.ProductClient.loadListeners(ProductClient.java:191)
+	at gov.usgs.earthquake.distribution.ProductClient.configure(ProductClient.java:157)
+	at gov.usgs.earthquake.distribution.Bootstrap.main(Bootstrap.java:306)
+
+Closing log file at Mon Nov 04 16:53:53 MST 2019
+
