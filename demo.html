@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>PDL Websocket Example</title>
+    </head>
+    <body>
+        <h1>NATS Streaming Websocket Example</h1>
+
+        <div class="status">
+            <noscript>
+                Requires javascript.
+            </noscript>
+        </div>
+
+        <ul class="messages"></ul>
+
+        <script>
+            document.querySelector('.status').innerHTML = 'opening socket';
+            var exampleSocket = new WebSocket("ws://localhost:8080/subscribe/0");
+            exampleSocket.onopen = (e) => {
+              document.querySelector('.status').innerHTML = 'socket opened ';
+            };
+            exampleSocket.onerror = (e) => {
+              document.querySelector('.status').innerHTML = 'socket error ';
+            };
+            exampleSocket.onclose = (e) => {
+              document.querySelector('.status').innerHTML = 'socket closed ';
+            };
+            exampleSocket.onmessage = (e) => {
+                var el = document.createElement('li');
+                el.innerHTML = '<code><pre>' +
+                        JSON.stringify(JSON.parse(e.data), null, 2) +
+                        '</pre></code>';
+                        document.querySelector('.messages').insertBefore(el, document.querySelector('.messages').firstChild);
+            };
+        </script>
+    </body>
+</html>
