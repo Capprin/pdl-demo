@@ -5,33 +5,51 @@
     </head>
     <body>
         <h1>NATS Streaming Websocket Example</h1>
+        <noscript>
+            Requires javascript.
+        </noscript>
 
-        <div class="status">
-            <noscript>
-                Requires javascript.
-            </noscript>
-        </div>
+        <ul class="status" style="list-style-type:none;"></ul>
 
         <ul class="messages"></ul>
 
         <script>
-            document.querySelector('.status').innerHTML = 'opening socket';
-            var exampleSocket = new WebSocket("ws://localhost:8080/subscribe/0");
+            function createListItem(parent, innerHtml, afterLast = true) {
+              var el = document.createElement('li');
+              el.innerHTML = innerHtml;
+              
+              if (afterLast) {
+                parent.appendChild(el);
+              } else {
+                parent.insertBefore(el, parent.firstChild);
+              }
+            }
+
+            var params = window.location.search.substr(1).split("=");
+            var sequence = "";
+            if (params == null || params[0] != "sequence") {
+              console.log("No params, or incorrect params")
+              sequence = "0";
+            } else {
+              console.log("Using sequence " + params[1]);
+              sequence = params[1];
+            }
+
+            createListItem(document.querySelector('.status') ,'opening socket.');
+            var exampleSocket = new WebSocket("ws://localhost:8080/subscribe/" + sequence);
+
             exampleSocket.onopen = (e) => {
-              document.querySelector('.status').innerHTML = 'socket opened ';
+              createListItem(document.querySelector('.status'), 'socket opened.');
             };
             exampleSocket.onerror = (e) => {
-              document.querySelector('.status').innerHTML = 'socket error ';
+              createListItem(document.querySelector('.status'), 'socket error.');
             };
             exampleSocket.onclose = (e) => {
-              document.querySelector('.status').innerHTML = 'socket closed ';
+              createListItem(document.querySelector('.status'), 'socket closed.');
             };
             exampleSocket.onmessage = (e) => {
-                var el = document.createElement('li');
-                el.innerHTML = '<code><pre>' +
-                        JSON.stringify(JSON.parse(e.data), null, 2) +
-                        '</pre></code>';
-                        document.querySelector('.messages').insertBefore(el, document.querySelector('.messages').firstChild);
+              msg = '<code><pre>' + JSON.stringify(JSON.parse(e.data), null, 2) + '</pre></code>';
+              createListItem(document.querySelector('.messages'), msg, false);
             };
         </script>
     </body>
