@@ -2,14 +2,11 @@
 
 # This utility manages a micronaut webservice for forwarding notifications from PDL. It is primarily for development.
 #
-# Written by Capprin Bass on 11/13/2019
-
-# Confirm we have java
-command -v java > /dev/null 2>&1 || (echo >&2 "Java not installed. Exiting."; exit 1; )
+# Written by Capprin Bass on 2/10/2019
 
 function start {
   echo "Starting PDL micronaut notification service"
-  java -cp ProductClient.jar gov.usgs.earthquake.natsws.Application
+  node ./node_ws/app.js
 }
 
 # Options
