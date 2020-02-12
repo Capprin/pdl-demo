@@ -66,7 +66,7 @@ server.on('connection', function onConnection(ws, req) {
     // define stan message behavior
     subscription.on('message', function onStanMessage(message) {
       // format as json
-      var json = {sequence: message.getSequence(), timestamp: message.getTimestamp(), data: JSON.parse(message.getData())};
+      var json = {sequence: message.getSequence(), timestamp: message.getTimestampRaw(), data: JSON.parse(message.getData())};
       if (LOG_LEVEL == 'all') console.log('Received STAN message. Payload: ' + JSON.stringify(json));
 
       // forward notification
